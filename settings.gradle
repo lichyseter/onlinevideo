@@ -1,3 +1,5 @@
 rootProject.name = 'onlinevideo'
 include 'eureka'
+include 'system'
+include 'gateway'
 
