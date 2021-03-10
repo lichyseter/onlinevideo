@@ -28,11 +28,16 @@ allprojects {
     }
 
     dependencyManagement {
+        dependencies {
+            dependency "org.springframework.boot:spring-boot-dependencies:2.3.9.RELEASE"
+            dependency "org.springframework.cloud:spring-cloud-dependencies:Hoxton.SR10"
+            dependency "mysql:mysql-connector-java:8.0.23"
+            dependency "org.mybatis.spring.boot:mybatis-spring-boot-starter:2.1.4"
+            dependency 'org.junit.jupiter:junit-jupiter-api:5.6.0'
+            dependency 'org.junit.jupiter:junit-jupiter-engine:5.6.0'
+        }
         imports {
-            mavenBom "org.springframework.cloud:spring-cloud-dependencies:Hoxton.SR10"
-            mavenBom "mysql:mysql-connector-java:8.0.23"
-            mavenBom "org.mybatis.spring.boot:mybatis-spring-boot-starter:2.1.4"
-            mavenBom 'org.junit.jupiter:junit-jupiter-api:5.6.0'
+            mavenBom 'org.springframework.cloud:spring-cloud-dependencies:Hoxton.SR10'
         }
     }
 

@@ -8,13 +8,19 @@ apply plugin: "com.thinkimi.gradle.MybatisGenerator"
 
 
 dependencies {
-    implementation 'org.springframework.boot:spring-boot-starter-web'
-    implementation group: 'org.mybatis.spring.boot', name: 'mybatis-spring-boot-starter'
-    implementation group: 'mysql', name: 'mysql-connector-java'
-    implementation group: 'org.springframework.boot', name: 'spring-boot-devtools'
+    compile group: 'org.mybatis.spring.boot', name: 'mybatis-spring-boot-starter'
+    compile group: 'mysql', name: 'mysql-connector-java'
 }
 
 mybatisGenerator {
     verbose = true
     configFile = 'src/main/resources/generator/generatorConfig.xml'
+}
+
+bootJar {
+    enabled = false
+}
+
+jar {
+    enabled = true
 }
