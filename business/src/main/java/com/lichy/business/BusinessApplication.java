@@ -1,4 +1,4 @@
-package com.lichy.system;
+package com.lichy.business;
 
 import org.mybatis.spring.annotation.MapperScan;
 import org.slf4j.Logger;
@@ -11,17 +11,17 @@ import org.springframework.core.env.Environment;
 
 @SpringBootApplication
 @EnableEurekaClient
-@MapperScan("com.lichy.server.mapper")
 @ComponentScan("com.lichy")
-public class SystemApplication {
+@MapperScan("com.lichy.server.mapper")
+public class BusinessApplication {
 
-	private static final Logger logger = LoggerFactory.getLogger(SystemApplication.class);
+	private static final Logger logger = LoggerFactory.getLogger(BusinessApplication.class);
 
 	public static void main(String[] args) {
-		SpringApplication app = new SpringApplication(SystemApplication.class);
+		SpringApplication app = new SpringApplication(BusinessApplication.class);
 		Environment env = app.run(args).getEnvironment();
 		logger.info("启动成功！！");
-		logger.info("System地址: \thttp://127.0.0.1:{}", env.getProperty("server.port"));
+		logger.info("Business地址: \thttp://127.0.0.1:{}", env.getProperty("server.port"));
 	}
 
 }

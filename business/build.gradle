@@ -1,0 +1,9 @@
+dependencies {
+    testCompile 'org.junit.jupiter:junit-jupiter-api'
+    testRuntime 'org.junit.jupiter:junit-jupiter-engine'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-client'
+    implementation group: 'org.mybatis.spring.boot', name: 'mybatis-spring-boot-starter'
+    implementation group: 'mysql', name: 'mysql-connector-java'
+    module group: 'com.lichy', name: 'server'
+}
