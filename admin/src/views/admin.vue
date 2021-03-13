@@ -16,7 +16,7 @@
           <a href="index.html" class="navbar-brand">
             <small>
               <i class="fa fa-leaf"></i>
-              管理控制台
+              在线视频课程
             </small>
           </a>
         </div>
@@ -184,8 +184,7 @@
                   <ul class="dropdown-menu dropdown-navbar">
                     <li>
                       <a href="#" class="clearfix">
-                        <img src="../../public/ace/assets/images/avatars/avatar.png" class="msg-photo"
-                             alt="Alex's Avatar"/>
+                        <img src="../../public/ace/assets/images/avatars/avatar.png" class="msg-photo" alt="Alex's Avatar" />
                         <span class="msg-body">
 													<span class="msg-title">
 														<span class="blue">Alex:</span>
@@ -202,8 +201,7 @@
 
                     <li>
                       <a href="#" class="clearfix">
-                        <img src="../../public/ace/assets/images/avatars/avatar3.png" class="msg-photo"
-                             alt="Susan's Avatar"/>
+                        <img src="../../public/ace/assets/images/avatars/avatar3.png" class="msg-photo" alt="Susan's Avatar" />
                         <span class="msg-body">
 													<span class="msg-title">
 														<span class="blue">Susan:</span>
@@ -220,8 +218,7 @@
 
                     <li>
                       <a href="#" class="clearfix">
-                        <img src="../../public/ace/assets/images/avatars/avatar4.png" class="msg-photo"
-                             alt="Bob's Avatar"/>
+                        <img src="../../public/ace/assets/images/avatars/avatar4.png" class="msg-photo" alt="Bob's Avatar" />
                         <span class="msg-body">
 													<span class="msg-title">
 														<span class="blue">Bob:</span>
@@ -238,8 +235,7 @@
 
                     <li>
                       <a href="#" class="clearfix">
-                        <img src="../../public/ace/assets/images/avatars/avatar2.png" class="msg-photo"
-                             alt="Kate's Avatar"/>
+                        <img src="../../public/ace/assets/images/avatars/avatar2.png" class="msg-photo" alt="Kate's Avatar" />
                         <span class="msg-body">
 													<span class="msg-title">
 														<span class="blue">Kate:</span>
@@ -256,8 +252,7 @@
 
                     <li>
                       <a href="#" class="clearfix">
-                        <img src="../../public/ace/assets/images/avatars/avatar5.png" class="msg-photo"
-                             alt="Fred's Avatar"/>
+                        <img src="../../public/ace/assets/images/avatars/avatar5.png" class="msg-photo" alt="Fred's Avatar" />
                         <span class="msg-body">
 													<span class="msg-title">
 														<span class="blue">Fred:</span>
@@ -285,7 +280,7 @@
 
             <li class="light-blue dropdown-modal">
               <a data-toggle="dropdown" href="#" class="dropdown-toggle">
-                <img class="nav-user-photo" src="../../public/ace/assets/images/avatars/user.jpg" alt="Jason's Photo"/>
+                <img class="nav-user-photo" src="../../public/ace/assets/images/avatars/user.jpg" alt="Jason's Photo" />
 
                 <i class="ace-icon fa fa-caret-down"></i>
               </a>
@@ -357,7 +352,7 @@
           <li class="" id="welcome-sidebar">
             <router-link to="/welcome">
               <i class="menu-icon fa fa-tachometer"></i>
-              <span class="menu-text"> 欢迎：{{ loginUser.name }} </span>
+              <span class="menu-text"> 欢迎：{{loginUser.name}} </span>
             </router-link>
 
             <b class="arrow"></b>
@@ -484,8 +479,7 @@
         </ul><!-- /.nav-list -->
 
         <div class="sidebar-toggle sidebar-collapse" id="sidebar-collapse">
-          <i id="sidebar-toggle-icon" class="ace-icon fa fa-angle-double-left ace-save-state"
-             data-icon1="ace-icon fa fa-angle-double-left" data-icon2="ace-icon fa fa-angle-double-right"></i>
+          <i id="sidebar-toggle-icon" class="ace-icon fa fa-angle-double-left ace-save-state" data-icon1="ace-icon fa fa-angle-double-left" data-icon2="ace-icon fa fa-angle-double-right"></i>
         </div>
       </div>
 
@@ -507,7 +501,23 @@
         <div class="footer-inner">
           <div class="footer-content">
 						<span class="bigger-120">
-							lichy &copy; 2021
+							<span class="blue bolder">甲蛙</span>
+							在线视频课程 &copy; 2099-2099
+						</span>
+
+            &nbsp; &nbsp;
+            <span class="action-buttons">
+							<a href="#">
+								<i class="ace-icon fa fa-twitter-square light-blue bigger-150"></i>
+							</a>
+
+							<a href="#">
+								<i class="ace-icon fa fa-facebook-square text-primary bigger-150"></i>
+							</a>
+
+							<a href="#">
+								<i class="ace-icon fa fa-rss-square orange bigger-150"></i>
+							</a>
 						</span>
           </div>
         </div>
@@ -521,60 +531,110 @@
 </template>
 
 <script>
-export default {
-  name: "admin",
-  mounted() {
-    $("body").removeClass("login-layout light-login");
-    $("body").attr("class", "no-skin");
-  },
-  data: function () {
-    return {
-      loginUser: {},
-    }
-  },
-  methods: {
-    /**
-     * 查找是否有权限
-     * @param router
-     */
-    hasResourceRouter(router) {
-      return true;
-    },
-    /**
-     * 查找是否有权限
-     * @param id
-     */
-    hasResource(id) {
-      return true;
-    },
-
-    login() {
-      this.$router.push("/admin")
-    },
-
-    /**
-     * 菜单激活样式，id是当前点击的菜单的id
-     * @param id
-     */
-    activeSidebar: function (id) {
-      // 兄弟菜单去掉active样式，自身增加active样式
-      $("#" + id).siblings().removeClass("active");
-      $("#" + id).siblings().find("li").removeClass("active");
-      $("#" + id).addClass("active");
-
-      // 如果有父菜单，父菜单的兄弟菜单去掉open active，父菜单增加open active
-      let parentLi = $("#" + id).parents("li");
-      if (parentLi) {
-        parentLi.siblings().removeClass("open active");
-        parentLi.siblings().find("li").removeClass("active");
-        parentLi.addClass("open active");
+  export default {
+    name: "admin",
+    data: function() {
+      return {
+        loginUser: {},
       }
     },
+    mounted: function() {
+      let _this = this;
+      $("body").removeClass("login-layout light-login");
+      $("body").attr("class", "no-skin");
+      // console.log("admin");
+      // sidebar激活样式方法二
+      _this.activeSidebar(_this.$route.name.replace("/", "-") + "-sidebar");
 
-    logout() {
+      $.getScript('/ace/assets/js/ace.min.js');
 
+      _this.loginUser = Tool.getLoginUser();
+
+      if (!_this.hasResourceRouter(_this.$route.name)) {
+        _this.$router.push("/login");
+      }
     },
-  }
+    watch: {
+      $route: {
+        handler:function(val, oldVal){
+          // sidebar激活样式方法二
+          console.log("---->页面跳转：", val, oldVal);
+          let _this = this;
 
-}
+          if (!_this.hasResourceRouter(val.name)) {
+            _this.$router.push("/login");
+            return;
+          }
+
+          _this.$nextTick(function(){  //页面加载完成后执行
+            _this.activeSidebar(_this.$route.name.replace("/", "-") + "-sidebar");
+          })
+        }
+      }
+    },
+    methods: {
+      /**
+       * 查找是否有权限
+       * @param router
+       */
+      hasResourceRouter(router) {
+        let _this = this;
+        let resources = Tool.getLoginUser().resources;
+        if (Tool.isEmpty(resources)) {
+          return false;
+        }
+        for (let i = 0; i < resources.length; i++) {
+          if (router === resources[i].page) {
+            return true;
+          }
+        }
+        return false;
+      },
+      /**
+       * 查找是否有权限
+       * @param id
+       */
+      hasResource(id) {
+        return Tool.hasResource(id);
+      },
+
+      login () {
+        this.$router.push("/admin")
+      },
+
+      /**
+       * 菜单激活样式，id是当前点击的菜单的id
+       * @param id
+       */
+      activeSidebar: function (id) {
+        // 兄弟菜单去掉active样式，自身增加active样式
+        $("#" + id).siblings().removeClass("active");
+        $("#" + id).siblings().find("li").removeClass("active");
+        $("#" + id).addClass("active");
+
+        // 如果有父菜单，父菜单的兄弟菜单去掉open active，父菜单增加open active
+        let parentLi = $("#" + id).parents("li");
+        if (parentLi) {
+          parentLi.siblings().removeClass("open active");
+          parentLi.siblings().find("li").removeClass("active");
+          parentLi.addClass("open active");
+        }
+      },
+
+      logout () {
+        let _this = this;
+        Loading.show();
+        _this.$ajax.get(process.env.VUE_APP_SERVER + '/system/admin/user/logout/' + _this.loginUser.token).then((response)=>{
+          Loading.hide();
+          let resp = response.data;
+          if (resp.success) {
+            Tool.setLoginUser(null);
+            _this.$router.push("/login")
+          } else {
+            Toast.warning(resp.message)
+          }
+        });
+      },
+    }
+  }
 </script>

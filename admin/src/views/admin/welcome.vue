@@ -247,6 +247,87 @@
 
 <script>
   export default {
-    name: "welcome"
+    name: "welcome",
+    mounted: function () {
+      let _this = this;
+      // sidebar激活样式方法一
+      // this.$parent.activeSidebar("welcome-sidebar");
+      _this.drawSaleChart();
+      _this.drawPieChart();
+    },
+    methods: {
+      drawSaleChart() {
+        // 生成随机两组数据
+        let d1 = [];
+        for (let i = 0; i < 30; i += 1) {
+          d1.push([i + 1, 2000 + Math.floor((Math.random()*100)+1)]);
+        }
+        let d2 = [];
+        for (let i = 0; i < 30; i += 1) {
+          d2.push([i + 1, 1900 + Math.floor((Math.random()*100)+1)]);
+        }
+
+        let sales_charts = $('#sales-charts').css({'width':'100%' , 'height':'220px'});
+        $.plot("#sales-charts", [
+          { label: "最近30天", data: d1 },
+          { label: "上一周期", data: d2 },
+        ], {
+          hoverable: true,
+          shadowSize: 0,
+          series: {
+            lines: { show: true },
+            points: { show: true }
+          },
+          xaxis: {
+            tickLength: 0
+          },
+          yaxis: {
+            tickLength: 0
+          },
+          grid: {
+            backgroundColor: { colors: [ "#fff", "#fff" ] },
+            borderWidth: 1,
+            borderColor:'#555'
+          }
+        });
+      },
+
+      drawPieChart() {
+        let placeholder = $('#piechart-placeholder').css({'width':'90%' , 'min-height':'180px'});
+        let data = [
+          { label: "Java",  data: 38.7, color: "#68BC31"},
+          { label: "Python",  data: 24.5, color: "#2091CF"},
+          { label: "Android",  data: 18.6, color: "#DA5430"},
+          { label: "其它",  data: 10, color: "#FEE074"},
+        ];
+        $.plot(placeholder, data, {
+          series: {
+            pie: {
+              show: true,
+              tilt:0.8,
+              highlight: {
+                opacity: 0.25
+              },
+              stroke: {
+                color: '#fff',
+                width: 2
+              },
+              startAngle: 2
+            }
+          },
+          legend: {
+            show: true,
+            position: "ne",
+            labelBoxBorderColor: null,
+            margin:[-30,15]
+          }
+          ,
+          grid: {
+            hoverable: true,
+            clickable: true
+          }
+        })
+      },
+    }
   }
 </script>
