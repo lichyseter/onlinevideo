@@ -1,7 +1,6 @@
 dependencies {
     compile group: 'org.mybatis.spring.boot', name: 'mybatis-spring-boot-starter'
     compile group: 'org.springframework.boot', name: 'spring-boot-starter-web'
-    compile group: 'org.springframework.boot', name: 'spring-boot-devtools'
     compile group: 'mysql', name: 'mysql-connector-java'
     implementation 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-client'
     implementation project(':server')
