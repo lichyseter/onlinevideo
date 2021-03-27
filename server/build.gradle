@@ -9,6 +9,12 @@ apply plugin: "com.thinkimi.gradle.MybatisGenerator"
 
 dependencies {
     compile group: 'org.mybatis.spring.boot', name: 'mybatis-spring-boot-starter'
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-web'
+    compile group: 'org.springframework.boot', name: 'spring-boot-devtools'
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-aop'
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-data-redis'
+    compile group: 'com.github.penggle', name: 'kaptcha'
+    compile group: 'com.github.pagehelper', name: 'pagehelper-spring-boot-starter'
     compile group: 'mysql', name: 'mysql-connector-java'
 }
 
